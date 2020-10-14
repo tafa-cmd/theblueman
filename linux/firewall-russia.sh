@@ -13,5 +13,8 @@ iptables -P OUTPUT ACCEPT
 # Allow ssh
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
+# Allow icmp
+iptables -A INPUT -p icmp -j ACCEPT
+
 # Print rules
 iptables -L -v --line-numbers
