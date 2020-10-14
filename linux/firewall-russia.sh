@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Get rid of firewalld
-systemctl stop firewalld 2>/dev/null
-systemctl disable firewalld 2>/dev/null
+systemctl stop ufw 2>/dev/null
+systemctl disable ufw 2>/dev/null
 
 # Flush existing rules
 iptables -F
