@@ -6,6 +6,7 @@ if [ "$#" -ne "1" ] ; then
 	exit 1
 fi
 
+# If this errors at the ls because .ssh/config doesn't exist, just touch it and run again
 for file in $(ls /home/*/.ssh/config) "/etc/ssh/ssh_config" ; do
 	if grep -E "^\s?PermitRootLogin\s+yes" $file ; then
 		sed -i -E 's/\s?PermitRootLogin\s+yes/PermitRootLogin no/g' $file
