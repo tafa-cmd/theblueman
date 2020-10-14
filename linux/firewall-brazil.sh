@@ -11,6 +11,10 @@ iptables -F
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 
+# Allow traffic on loopback
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
 # Allow established/related incoming connections
 iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
