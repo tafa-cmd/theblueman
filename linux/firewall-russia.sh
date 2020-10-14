@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Get rid of firewalld
+# Get rid of ufw
 systemctl stop ufw 2>/dev/null
 systemctl disable ufw 2>/dev/null
 
