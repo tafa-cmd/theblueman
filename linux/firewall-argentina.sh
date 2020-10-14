@@ -11,6 +11,9 @@ iptables -F
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
 
+# Allow established/related incoming connections
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
 # Set default policy to accept outbound requests
 iptables -P OUTPUT ACCEPT
 
